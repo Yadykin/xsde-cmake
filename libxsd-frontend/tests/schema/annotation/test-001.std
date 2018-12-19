@@ -1,0 +1,36 @@
+primary
+{
+  namespace test
+  {
+    complex type
+    {
+      <global element ebar documentation>
+      element ebar
+      <group element efoo documentation>
+      element efoo
+      <global element ebar documentation>
+      element ebar
+      <global attribute abar documentation>
+      optional attribute abar http://www.w3.org/2001/XMLSchema#string
+      <group attribute afoo documentation>
+      optional attribute afoo http://www.w3.org/2001/XMLSchema#string
+      <global attribute abaz documentation>
+      optional attribute abaz http://www.w3.org/2001/XMLSchema#string
+      [1, 1] sequence
+      {
+        [1, 1] element ebar http://www.w3.org/2001/XMLSchema#string
+        [1, 1] choice
+        {
+          [1, 1] element efoo http://www.w3.org/2001/XMLSchema#string
+          [1, 1] element ebar http://www.w3.org/2001/XMLSchema#string
+        }
+      }
+    }
+    <global element ebar documentation>
+    element ebar http://www.w3.org/2001/XMLSchema#string
+    <global attribute abar documentation>
+    attribute abar http://www.w3.org/2001/XMLSchema#string
+    <global attribute abaz documentation>
+    attribute abaz http://www.w3.org/2001/XMLSchema#string
+  }
+}

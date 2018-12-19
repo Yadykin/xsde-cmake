@@ -1,0 +1,13 @@
+libxsd-frontend is a compiler frontend for the W3C XML Schema definition
+language. It includes parser, semantic graph types and traversal mechanism.
+
+See the NEWS file for the user-visible changes from the previous release.
+
+See the LICENSE file for distribution conditions.
+
+See the INSTALL file for prerequisites and installation instructions.
+
+The project page is at http://codesynthesis.com/projects/libxsd-frontend/.
+
+Send bug reports or any other feedback to the
+libxsd-frontend-users@codesynthesis.com mailing list.

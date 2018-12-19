@@ -1,0 +1,15 @@
+<t:root xmlns:t="test" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <t:any/>
+  <t:any/>
+  <t:base x="abc">
+    <a>123</a>
+    <b>abc</b>
+  </t:base>
+  <t:any xsi:type="t:derived" x="xyz">
+    <a>123</a>
+    <b>abc</b>
+    <c>9</c>
+    <c>8</c>
+    <c>7</c>
+  </t:any>
+</t:root>

@@ -1,0 +1,33 @@
+primary
+{
+  namespace test
+  {
+    complex type
+    {
+      element foo2
+      element bar2
+      element foo3
+      element bar3
+      [1, 1] sequence
+      {
+        [0, unbounded] choice
+        {
+          [0, 1] choice
+          {
+            [1, 1] element foo2 http://www.w3.org/2001/XMLSchema#string
+            [0, 1] element bar2 http://www.w3.org/2001/XMLSchema#string
+          }
+          [1, unbounded] choice
+          {
+            [1, unbounded] element foo3 http://www.w3.org/2001/XMLSchema#string
+            [0, unbounded] element bar3 http://www.w3.org/2001/XMLSchema#string
+          }
+        }
+      }
+    }
+    element foo2 http://www.w3.org/2001/XMLSchema#string
+    element bar2 http://www.w3.org/2001/XMLSchema#string
+    element foo3 http://www.w3.org/2001/XMLSchema#string
+    element bar3 http://www.w3.org/2001/XMLSchema#string
+  }
+}

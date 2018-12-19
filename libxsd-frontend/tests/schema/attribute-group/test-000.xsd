@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:t="test" targetNamespace="test">
+
+  <!-- Multiple levels of forward reference. -->
+
+  <complexType name="type">
+    <attributeGroup ref="t:g1"/>
+  </complexType>
+
+  <attributeGroup name="g1">
+    <attributeGroup ref="t:g2"/>
+    <attributeGroup ref="t:g3"/>
+  </attributeGroup>
+
+  <attributeGroup name="g2">
+    <attribute ref="t:foo2"/>
+    <attribute ref="t:bar2" use="required"/>
+  </attributeGroup>
+
+  <attributeGroup name="g3">
+    <attribute ref="t:foo3"/>
+    <attribute ref="t:bar3" use="required"/>
+  </attributeGroup>
+
+  <attribute name="foo2" type="string"/>
+  <attribute name="bar2" type="string"/>
+
+  <attribute name="foo3" type="string"/>
+  <attribute name="bar3" type="string"/>
+
+</schema>

@@ -1,0 +1,28 @@
+primary
+{
+  namespace test
+  {
+    complex type
+    {
+      element e1=123
+      element e2==456
+      element e3=unqual
+      element e4==test#t:foo
+      element e5=foo#x:bar
+      optional attribute a1=123 http://www.w3.org/2001/XMLSchema#int
+      optional attribute a2==456 http://www.w3.org/2001/XMLSchema#int
+      optional attribute a3=foo#x:bar test#qname
+      [1, 1] sequence
+      {
+        [1, 1] element e1=123 http://www.w3.org/2001/XMLSchema#int
+        [1, 1] element e2==456 http://www.w3.org/2001/XMLSchema#int
+        [1, 1] element e3=unqual http://www.w3.org/2001/XMLSchema#QName
+        [1, 1] element e4==test#t:foo http://www.w3.org/2001/XMLSchema#QName
+        [1, 1] element e5=foo#x:bar http://www.w3.org/2001/XMLSchema#QName
+      }
+    }
+    complex qname: http://www.w3.org/2001/XMLSchema#QName
+    {
+    }
+  }
+}

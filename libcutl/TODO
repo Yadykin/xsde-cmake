@@ -1,0 +1,8 @@
+@@ Add memprof?
+@@ path::base() and ".." & "." special directories.
+@@ INSTALL does not describe automake/vc++ (not currently dist'ed).
+@@ Add static lib vc++ configurations (for cli).
+@@ Handle tests in automake.
+@@ No support for Windows network directories.
+
+

@@ -1,0 +1,38 @@
+anonymous: test anon_base anon
+anonymous: test anon_nested_base anon_nested
+anonymous: test anon_nested_base_base anon_nested_base
+primary
+{
+  namespace test
+  {
+    enumeration named: http://www.w3.org/2001/XMLSchema#string
+    {
+      enumerator male
+      enumerator female
+    }
+    enumeration anon_base: http://www.w3.org/2001/XMLSchema#string
+    {
+      enumerator male
+      enumerator female
+    }
+    enumeration anon: test#anon_base1
+    {
+      enumerator male
+      enumerator female
+    }
+    enumeration anon_nested: test#anon_nested_base
+    {
+      enumerator male
+      enumerator female
+    }
+    complex anon_base1: http://www.w3.org/2001/XMLSchema#string
+    {
+    }
+    complex anon_nested_base: test#anon_nested_base_base
+    {
+    }
+    complex anon_nested_base_base: http://www.w3.org/2001/XMLSchema#string
+    {
+    }
+  }
+}

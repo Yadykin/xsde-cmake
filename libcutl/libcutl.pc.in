@@ -1,0 +1,15 @@
+# file      : libcutl.pc.in
+# copyright : Copyright (c) 2009-2018 Code Synthesis Tools CC
+# license   : MIT; see accompanying LICENSE file
+
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+libdir=@libdir@
+includedir=@includedir@
+
+Name: libcutl
+Description: C++ utility library
+URL: http://www.codesynthesis.com/projects/libcutl/
+Version: @VERSION@
+Libs: -L${libdir} -lcutl
+Cflags: -I${includedir}

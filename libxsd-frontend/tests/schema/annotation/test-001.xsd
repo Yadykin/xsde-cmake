@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:t="test" targetNamespace="test">
+
+  <!-- Test various ref constructs. -->
+
+  <complexType name="type">
+    <sequence>
+      <element ref="t:ebar"/>
+      <group ref="t:eg"/>
+    </sequence>
+    <attribute ref="t:abar"/>
+    <attributeGroup ref="t:ag"/>
+  </complexType>
+
+  <group name="eg">
+    <choice>
+      <element name="efoo" type="string">
+        <annotation>
+          <documentation>group element efoo documentation</documentation>
+        </annotation>
+      </element>
+      <element ref="t:ebar"/>
+    </choice>
+  </group>
+
+  <element name="ebar" type="string">
+    <annotation>
+      <documentation>global element ebar documentation</documentation>
+    </annotation>
+  </element>
+
+  <attributeGroup name="ag">
+    <attribute name="afoo" type="string">
+      <annotation>
+        <documentation>group attribute afoo documentation</documentation>
+      </annotation>
+    </attribute>
+    <attribute ref="t:abaz"/>
+  </attributeGroup>
+
+  <attribute name="abar" type="string">
+    <annotation>
+      <documentation>global attribute abar documentation</documentation>
+    </annotation>
+  </attribute>
+
+  <attribute name="abaz" type="string">
+    <annotation>
+      <documentation>global attribute abaz documentation</documentation>
+    </annotation>
+  </attribute>
+
+</schema>

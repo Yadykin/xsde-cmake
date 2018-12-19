@@ -1,0 +1,37 @@
+primary
+{
+  namespace test
+  {
+    union u1 http://www.w3.org/2001/XMLSchema#int http://www.w3.org/2001/XMLSchema#string 
+    union u2 
+    {
+      enumeration <anonymous>: http://www.w3.org/2001/XMLSchema#token
+      {
+        enumerator one
+      }
+    }
+
+    {
+      enumeration <anonymous>: http://www.w3.org/2001/XMLSchema#string
+      {
+        enumerator two
+      }
+    }
+
+    union u3 http://www.w3.org/2001/XMLSchema#int test#u1 
+    {
+      enumeration <anonymous>: http://www.w3.org/2001/XMLSchema#token
+      {
+        enumerator one
+      }
+    }
+
+    {
+      enumeration <anonymous>: http://www.w3.org/2001/XMLSchema#string
+      {
+        enumerator two
+      }
+    }
+
+  }
+}

@@ -1,0 +1,137 @@
+primary
+{
+  namespace test
+  {
+    complex type
+    {
+      element foo
+      element bar
+      [1, 1] sequence
+      {
+        [1, 1] choice
+        {
+          [1, 1] element foo
+          {
+            complex <anonymous>
+            {
+              element foo
+              element bar
+              [1, 1] sequence
+              {
+                [1, 1] choice
+                {
+                  [1, 1] element foo
+                  {
+                    complex <recursive-anonymous>
+                  }
+                  [1, 1] element bar
+                  {
+                    complex <anonymous>
+                    {
+                      element foo
+                      element bar
+                      [1, 1] sequence
+                      {
+                        [1, 1] choice
+                        {
+                          [1, 1] element foo
+                          {
+                            complex <recursive-anonymous>
+                          }
+                          [1, 1] element bar
+                          {
+                            complex <recursive-anonymous>
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+          [1, 1] element bar
+          {
+            complex <anonymous>
+            {
+              element foo
+              element bar
+              [1, 1] sequence
+              {
+                [1, 1] choice
+                {
+                  [1, 1] element foo
+                  {
+                    complex <anonymous>
+                    {
+                      element foo
+                      element bar
+                      [1, 1] sequence
+                      {
+                        [1, 1] choice
+                        {
+                          [1, 1] element foo
+                          {
+                            complex <recursive-anonymous>
+                          }
+                          [1, 1] element bar
+                          {
+                            complex <recursive-anonymous>
+                          }
+                        }
+                      }
+                    }
+                  }
+                  [1, 1] element bar
+                  {
+                    complex <recursive-anonymous>
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    element bar
+    {
+      complex <anonymous>
+      {
+        element foo
+        element bar
+        [1, 1] sequence
+        {
+          [1, 1] choice
+          {
+            [1, 1] element foo
+            {
+              complex <anonymous>
+              {
+                element foo
+                element bar
+                [1, 1] sequence
+                {
+                  [1, 1] choice
+                  {
+                    [1, 1] element foo
+                    {
+                      complex <recursive-anonymous>
+                    }
+                    [1, 1] element bar
+                    {
+                      complex <recursive-anonymous>
+                    }
+                  }
+                }
+              }
+            }
+            [1, 1] element bar
+            {
+              complex <recursive-anonymous>
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+primary
+{
+  namespace test
+  {
+    list list
+    {
+      union <anonymous> http://www.w3.org/2001/XMLSchema#int test#enum 
+    }
+    enumeration enum: http://www.w3.org/2001/XMLSchema#string
+    {
+      enumerator male
+      enumerator female
+    }
+  }
+}

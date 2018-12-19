@@ -1,0 +1,40 @@
+// file      : cutl/version.hxx.in -*- C++ -*-
+// copyright : Copyright (c) 2009-2018 Code Synthesis Tools CC
+// license   : MIT; see accompanying LICENSE file
+
+#ifndef LIBCUTL_VERSION // Note: using the version macro itself.
+
+// Note: using build2 standard versioning scheme. The numeric version format
+// is AAABBBCCCDDDE where:
+//
+// AAA - major version number
+// BBB - minor version number
+// CCC - bugfix version number
+// DDD - alpha / beta (DDD + 500) version number
+// E   - final (0) / snapshot (1)
+//
+// When DDDE is not 0, 1 is subtracted from AAABBBCCC. For example:
+//
+// Version      AAABBBCCCDDDE
+//
+// 0.1.0        0000010000000
+// 0.1.2        0000010010000
+// 1.2.3        0010020030000
+// 2.2.0-a.1    0020019990010
+// 3.0.0-b.2    0029999995020
+// 2.2.0-a.1.z  0020019990011
+//
+#define LIBCUTL_VERSION       $libcutl.version.project_number$ULL
+#define LIBCUTL_VERSION_STR   "$libcutl.version.project$"
+#define LIBCUTL_VERSION_ID    "$libcutl.version.project_id$"
+
+#define LIBCUTL_VERSION_MAJOR $libcutl.version.major$
+#define LIBCUTL_VERSION_MINOR $libcutl.version.minor$
+#define LIBCUTL_VERSION_PATCH $libcutl.version.patch$
+
+#define LIBCUTL_PRE_RELEASE   $libcutl.version.pre_release$
+
+#define LIBCUTL_SNAPSHOT      $libcutl.version.snapshot_sn$ULL
+#define LIBCUTL_SNAPSHOT_ID   "$libcutl.version.snapshot_id$"
+
+#endif // LIBCUTL_VERSION

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:t="test" targetNamespace="test">
+
+  <!-- Recursive reference: g1->element->type->g1 -->
+
+  <complexType name="type">
+    <sequence>
+      <group ref="t:g1"/>
+    </sequence>
+  </complexType>
+
+  <group name="g1">
+    <choice>
+      <element name="foo">
+        <complexType>
+          <sequence>
+            <group ref="t:g1"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element ref="t:bar"/>
+    </choice>
+  </group>
+
+  <element name="bar">
+    <complexType>
+      <sequence>
+	<group ref="t:g1"/>
+      </sequence>
+    </complexType>
+  </element>
+
+</schema>

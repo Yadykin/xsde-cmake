@@ -1,0 +1,62 @@
+primary
+{
+  namespace test
+  {
+    complex common-base: http://www.w3.org/2001/XMLSchema#string
+    {
+    }
+    complex base: test#common-base
+    {
+    }
+    enumeration one: test#base
+    {
+      <romance documentation>
+      enumerator romance
+      enumerator fiction
+      enumerator horror
+    }
+    enumeration two: test#common-base
+    {
+      enumerator horror
+      enumerator history
+      enumerator philosophy
+    }
+    enumeration three: http://www.w3.org/2001/XMLSchema#anyURI
+    {
+      enumerator foo
+      enumerator bar
+    }
+    enumeration union0: test#common-base
+    {
+      <romance documentation>
+      enumerator romance
+      enumerator fiction
+      enumerator horror
+      enumerator history
+      enumerator philosophy
+    }
+    <union1 documentation>
+    enumeration union1: test#common-base
+    {
+      <romance documentation>
+      enumerator romance
+      enumerator fiction
+      enumerator horror
+      enumerator history
+      enumerator philosophy
+    }
+    union union2 test#one test#union1 test#common-base 
+    union union3 test#one test#three 
+    complex complex1
+    {
+      element a
+      [1, 1] sequence
+      {
+        [1, 1] element a test#union1
+      }
+    }
+    complex complex2: test#union1
+    {
+    }
+  }
+}

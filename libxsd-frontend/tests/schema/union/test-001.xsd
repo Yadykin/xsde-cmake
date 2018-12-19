@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:t="test" targetNamespace="test">
+
+  <!-- Test resolution of anonymous argument types. -->
+
+  <simpleType name="list">
+    <list>
+      <simpleType>
+        <union memberTypes="int t:enum"/>
+      </simpleType>
+    </list>
+  </simpleType>
+
+  <simpleType name="enum">
+    <restriction base="string">
+      <enumeration value="male"/>
+      <enumeration value="female"/>
+    </restriction>
+  </simpleType>
+
+</schema>

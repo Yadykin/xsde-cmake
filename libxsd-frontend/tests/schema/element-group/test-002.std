@@ -1,0 +1,24 @@
+primary
+{
+  namespace test
+  {
+    complex type
+    {
+      any 'any #1'
+      element foo
+      any 'any #0'
+      [1, 1] sequence
+      {
+        [0, unbounded] sequence
+        {
+          [1, 1] any 'any #1'
+        }
+        [0, unbounded] sequence
+        {
+          [1, 1] element foo http://www.w3.org/2001/XMLSchema#int
+          [1, 1] any 'any #0'
+        }
+      }
+    }
+  }
+}

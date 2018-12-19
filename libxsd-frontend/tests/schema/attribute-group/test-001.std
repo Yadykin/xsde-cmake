@@ -1,0 +1,12 @@
+primary
+{
+  namespace test
+  {
+    complex type
+    {
+      any-attribute 'any-attribute #1'
+      optional attribute foo http://www.w3.org/2001/XMLSchema#string
+      any-attribute 'any-attribute #0'
+    }
+  }
+}

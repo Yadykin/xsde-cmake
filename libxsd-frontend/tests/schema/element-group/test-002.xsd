@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:t="test" targetNamespace="test">
+
+  <!-- Any in groups. -->
+
+  <complexType name="type">
+    <sequence>
+      <group ref="t:g1" minOccurs="0" maxOccurs="unbounded"/>
+      <group ref="t:g2" minOccurs="0" maxOccurs="unbounded"/>
+    </sequence>
+  </complexType>
+
+  <group name="g1">
+    <sequence>
+      <any namespace="http://www.foo.com"/>
+    </sequence>
+  </group>
+
+  <group name="g2">
+    <sequence>
+      <element name="foo" type="int"/>
+      <any namespace="http://www.bar.com"/>
+    </sequence>
+  </group>
+
+</schema>

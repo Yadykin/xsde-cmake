@@ -1,0 +1,6 @@
+# file      : examples/cxx/parser/minimal/people.map
+# copyright : not copyrighted - public domain
+
+include "gender.hxx";
+
+gender ::gender ::gender;

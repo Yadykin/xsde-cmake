@@ -1,0 +1,298 @@
+Version 2.0.0
+
+  * New major version with removed dependencies (now only depends on
+    libcutl) and no longer supports Xerces-C++ 2-series.
+
+  * Support for fat type files.
+
+  * Generator that returns list of included/imported schemas.
+
+Version 1.18.0
+
+  * Add support for multiple pattern facets.
+
+  * Use normalized base path to construct absolute path.
+
+  * Trim leading and trailing whitespaces in XML Schema attributes.
+
+Version 1.17.0
+
+  * Add support for resolving default/fixed values of QName type. Now
+    the qualified value is represented in the <namespace>#<qname> form.
+
+  * Anonymous transformation now passes the actual file path instead of
+    the empty string to the AnonymousNameTranslator::translate() function
+    for the translation unit.
+
+  * Anonymous transformation now names anonymous union member types.
+
+  * Do not copy ref'ed default values for non-optional attributes.
+
+  * Change predicate names in the semantic graph to consistently end
+    with _p.
+
+  * New transformation: enum synthesis.
+
+  * Add union information to the semantics graph.
+
+  * Add support for translating schema file paths.
+
+Version 1.16.0
+
+  * New transformation: simplifier. It simplifies the schema graph
+    by, for example, removing empty compositors where it would not
+    change the semantics of the schema.
+
+  * Added min() and max() accessors to the Particle and Compositor
+    semantic graph nodes.
+
+  * Added optional strong include key to the schema-per-type
+    transformation.
+
+Version 1.15.0
+
+  * Support for the simple type/simple content restriction facets.
+
+  * Support for suppressing frontend warnings.
+
+  * Support for suppressing full schema checking.
+
+  * Support for the interface changes introduced in Xerces-C++ 3.0.0.b2.
+
+Version 1.14.0
+
+  * Support for referencing names in including schema in chameleon inclusion.
+
+  * Support for native paths in include/import directives.
+
+  * Support for UTF-32 and UTF-16 in wchar_t.
+
+  * Fixed a bug in import stubs.
+
+  * Got rid of warnings reported by g++-4.3.
+
+Version 1.13.0
+
+  * Support for anonymous list item and simple type restriction base
+    in both parser and anonymous transformation.
+
+Version 1.12.0
+
+  * New transformations: anonymous and schema-per-type.
+
+  * Optional location translator can now be passed to parser's
+    c-tor to translate included and imported schema locations.
+
+  * Support for the upcoming Xerces-C++ 3.0.0 release.
+
+  * Upgraded to the new boost import stub.
+
+  * Upgraded to the new xerces-c import stub.
+
+Version 1.11.0
+
+  * New transformation, xsd-frontend/transformations/restriction.hxx,
+    copies omitted attributes and establishes associations between
+    attributes, elements, and wildcards in complex type inheritance
+    by restriction.
+
+  * Upgraded to the new boost import stub.
+
+Version 1.10.1
+
+  * Add XML Schema error detection that is missing in Xerces-C++.
+
+  * Update Xerces-C++ import stub to use the include directory
+    instead of src for header inclusion.
+
+Version 1.10.0
+
+  * New semantic graph node Annotation and edge Annotates. The parser
+    now handles XML Schema annotations and builds the corresponding
+    representation in the semantic graph.
+
+  * The library no longer depends on the internal Xerces-C++ headers
+    and can be built against an installed version of Xerces-C++.
+
+Version 1.9.1
+
+  * Element wildcard (SemanticGraph::Any) is now present in the complex
+    type scope with an auto-generated name.
+
+  * Additional regression tests for wildcard parsing.
+
+Version 1.9.0
+
+  * Upgraded to build-0.3.0.
+
+Version 1.8.3
+
+  * Fix for a bug in the edge case of empty prefix namespace resolution.
+
+Version 1.8.2
+
+  * Fix for a bug in element ordering.
+
+
+Version 1.8.1
+
+  * Fix for a bug in element group forward reference resolution.
+
+  * Set of regression tests.
+
+
+Version 1.8.0
+
+  * Support for the anyAttribute wildcard.
+
+  * Substitution edge is now propagated to referenced elements.
+
+  * Special parsing method which returns a graph that virtually
+    corresponds to the XML Schema namespace definition with all
+    the built-in type.
+
+  * Mixed content flag in SemanticGraph::Complex.
+
+  * Optional proper handling of inheritance by restriction.
+
+
+Version 1.7.0
+
+  * Added Restricts and Extends edges that model XML Schema inheritance
+    by restriction and inheritance by extension, respectively. The parser
+    was adjusted to use these edges instead of the generic Inherits edge.
+
+  * Implemented handling of the complex content inheritance by restriction.
+
+  * Fixed the chameleon inclusion code to create one Schema node per each
+    unique namespace.
+
+  * Removed support for multiple inheritance in Complex.
+
+  * Added a constructor that takes one node traverser to all edge traversers.
+
+
+Version 1.6.1
+
+  * Bug fixes in the parser.
+
+
+Version 1.6.0
+
+  * Support for traversing inheritance graph of enumerations.
+
+  * Support for removal of Names edges.
+
+
+Version 1.5.0
+
+  * Semantic graph now captures containment relations for elements. New
+    semantic graph nodes: particle, compositor, all, choice, sequence.
+
+  * Element and attribute groups are not first-class semantic graph
+    nodes: element-group and attribute-group. References to groups
+    are still fully resolved (i.e., their content is copied into
+    referencing constructs).
+
+
+Version 1.4.1
+
+  * Upgraded to the version-aware libboost import stub.
+
+
+Version 1.4.0
+
+  * Moved to the build 0.2 series.
+
+  * Support for the default and fixed values in attribute and element
+    definitions.
+
+
+Version 1.3.0
+
+  * Several bug fixes in the parser.
+
+  * Basic support for union. Union member types are not yet tracked.
+
+
+Version 1.2.0
+
+  * Bug fixes in the parser.
+
+  * Support for the 'substitutes' relation.
+
+  * A flag that indicates whether an element is global.
+
+
+Version 1.1.0
+
+  * Basic support for inheritance-by-restriction of complex types.
+
+  * Support for mixed content model by simply ignoring the attribute.
+
+  * Support for xsd:anyAttribute by simply ignoring the declaration.
+
+  * Support for xsd:any.
+
+  * Support for the element/attribute-belongs-to-a-namespace relation
+    for qualified elements and attributes.
+
+
+Version 1.0.6
+
+  * Bug fixes in the parser.
+
+  * Support for xsd:list.
+
+  * Support for the 'refType' extension attribute which allows to specify
+    referenced type for IDREF/IDREFS data types.
+
+
+Version 1.0.5
+
+  * Bug fixes in the parser.
+
+  * SemanticGraph::Scope::NamesList uses List container instead of Vector.
+    This allows changing the semantic graph while traversing it.
+
+  * SemanticGraph::Schema graph node supports multiple incoming Contains
+    edges.
+
+  * Traversal::Scope has been extended to support traversal of changing
+    semantic graphs.
+
+
+Version 1.0.4
+
+  * Diagnostics improvements.
+
+  * Bug fixes in the filesystem path handling logic.
+
+
+Version 1.0.3
+
+  * Bug fixes in the filesystem path handling logic.
+
+
+Version 1.0.2
+
+  * Parser now handles subsequent inclusion/importing of the same
+    schema by creating an appropriate edge in the semantic graph.
+    Note that this may result in the semantic graph having cycles
+    of Includes/Imports/Sources edges.
+
+  * Support for iteration over Belongs edges in SemanticGraph::Type.
+
+
+Version 1.0.1
+
+  * Diagnostics improvements.
+
+  * Build system improvements.
+
+  * Code cleanups.
+
+
+Version 1.0.0
+
+  * First public release.

@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:t="test" targetNamespace="test">
+
+  <!-- Enumeration synthesis -->
+
+  <simpleType name="common-base">
+    <restriction base="string"/>
+  </simpleType>
+
+  <simpleType name="base">
+    <restriction base="t:common-base"/>
+  </simpleType>
+
+  <simpleType name="one">
+    <restriction base="t:base">
+      <enumeration value="romance">
+        <annotation>
+          <documentation>romance documentation</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="fiction"/>
+      <enumeration value="horror"/>
+    </restriction>
+  </simpleType>
+
+  <simpleType name="two">
+    <restriction base="t:common-base">
+      <enumeration value="horror"/>
+      <enumeration value="history"/>
+      <enumeration value="philosophy"/>
+    </restriction>
+  </simpleType>
+
+  <simpleType name="three">
+    <restriction base="anyURI">
+      <enumeration value="foo"/>
+      <enumeration value="bar"/>
+    </restriction>
+  </simpleType>
+
+  <simpleType name="union0">
+    <union memberTypes="t:one t:two t:union1"/>
+  </simpleType>
+
+  <simpleType name="union1">
+    <annotation>
+      <documentation>union1 documentation</documentation>
+    </annotation>
+    <union memberTypes="t:one t:two"/>
+  </simpleType>
+
+  <simpleType name="union2">
+    <union memberTypes="t:one t:union1 t:common-base"/>
+  </simpleType>
+
+  <simpleType name="union3">
+    <union memberTypes="t:one t:three"/>
+  </simpleType>
+
+  <complexType name="complex1">
+    <sequence>
+      <element name="a" type="t:union1"/>
+    </sequence>
+  </complexType>
+
+  <complexType name="complex2">
+    <simpleContent>
+      <extension base="t:union1"/>
+    </simpleContent>
+  </complexType>
+
+</schema>

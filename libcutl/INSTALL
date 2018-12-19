@@ -1,0 +1,69 @@
+Building on UNIX
+================
+
+The following build instructions are for the Linux/UNIX/Mac OS X
+operating systems as well as for Cygwin and MinGW on Windows.
+
+The standard autotools-based build system is used on these platforms. After
+unpacking the source code archive, change to the libcutl package directory
+(referred to as libcutl/ from now on) and run the configure script:
+
+./configure
+
+To see the available configuration options run configure with --help:
+
+./configure --help
+
+As an example, the following configure command only builds shared libraries,
+uses the specified C and C++ compilers, and compiles with optimization and
+without debug information:
+
+./configure --disable-static CC=gcc-4.5 CXX=g++-4.5 CFLAGS=-O3 CXXFLAGS=-O3
+
+Once configuration is complete, run make to build libcutl:
+
+make
+
+Once the build is completed successfully, you can install the libcutl headers
+and libraries using the install target (you may need to do this step as root
+depending on the installation directory):
+
+make install
+
+
+Building on Windows
+===================
+
+The following build instructions are for Windows using Microsoft Visual
+Studio. If you would like to build libcutl with GCC either using Cygwin
+or MinGW, refer to the "Building on UNIX" section above.
+
+The standard Visual Studio project and solution files are used on this
+platform. To build libcutl, unpack the source code archive and open the
+libcutl-vc<N>.sln file located in the libcutl package directory (referred
+to as libcutl\ from now on). Here <N> is the version of Visual Studio that
+you are using. Once the solution is open, select the desired build
+configuration (Debug or Release) and platform (Win32 or x64) and build
+the solution.
+
+The resulting 32-bit DLLs and import libraries are placed into the
+libcutl\bin\ and libcutl\lib\ directories, respectively. Similarly, the
+64-bit DLLs and import libraries are placed into libcutl\bin64\ and
+libcutl\lib64\. The Release versions of the import libraries are named
+cutl.lib and the Debug versions are named cutl-d.lib.
+
+To configure Visual Studio to automatically locate the libcutl headers,
+DLLs, and import libraries, add the following paths to your VC++
+Directories:
+
+Win32:
+
+  Include:    ...\libcutl
+  Library:    ...\libcutl\lib
+  Executable: ...\libcutl\bin
+
+x64:
+
+  Include:    ...\libcutl
+  Library:    ...\libcutl\lib64
+  Executable: ...\libcutl\bin64

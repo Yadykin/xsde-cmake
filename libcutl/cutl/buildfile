@@ -1,0 +1,57 @@
+# file      : cutl/buildfile
+# copyright : Copyright (c) 2009-2018 Code Synthesis Tools CC
+# license   : MIT; see accompanying LICENSE file
+
+lib{cutl}:     {hxx ixx txx cxx}{** -version -xml/** -details/boost/**} \
+               {hxx}{version}                                           \
+details/build2/{h}{*}
+
+# Include the generated version header into the distribution (so that we don't
+# pick up an installed one) and don't remove it when cleaning in src (so that
+# clean results in a state identical to distributed).
+#
+hxx{version}: in{version} $src_root/manifest
+hxx{version}: dist  = true
+hxx{version}: clean = ($src_root != $out_root)
+
+# For pre-releases use the complete version to make sure they cannot be used
+# in place of another pre-release or the final version.
+#
+if $version.pre_release
+  lib{cutl}: bin.lib.version = @"-$version.project_id"
+else
+  lib{cutl}: bin.lib.version = @"-$version.major.$version.minor"
+
+cxx.poptions =+ "-I$out_root" "-I$src_root" -DLIBCUTL_BUILD2
+obja{*}: cxx.poptions += -DLIBCUTL_STATIC_BUILD
+objs{*}: cxx.poptions += -DLIBCUTL_SHARED_BUILD
+
+lib{cutl}: cxx.export.poptions = "-I$out_root" "-I$src_root" -DLIBCUTL_BUILD2
+liba{cutl}: cxx.export.poptions += -DLIBCUTL_STATIC
+libs{cutl}: cxx.export.poptions += -DLIBCUTL_SHARED
+
+# Install into the cutl/ subdirectory of, say, /usr/include/ recreating
+# subdirectories.
+#
+install_include = [dir_path] include/cutl/
+
+{hxx ixx txx}{*}: install         = $install_include
+{hxx ixx txx}{*}: install.subdirs = true
+
+# We want these to be picked up even when LIBCUTL_BUILD2 is not defined.
+#
+details/build2/
+{
+  h{*}: install = false
+
+  if ($cxx.class == 'msvc')
+  {
+    h{config-vc}@./:      install = $install_include/details/
+    h{config-vc-stub}@./: install = $install_include/details/build2/config-vc.h
+  }
+  else
+  {
+    h{config}@./:      install = $install_include/details/
+    h{config-stub}@./: install = $install_include/details/build2/config.h
+  }
+}

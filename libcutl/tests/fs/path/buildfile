@@ -1,0 +1,7 @@
+# file      : tests/fs/path/buildfile
+# copyright : Copyright (c) 2009-2018 Code Synthesis Tools CC
+# license   : MIT; see accompanying LICENSE file
+
+import libs = libcutl%lib{cutl}
+
+exe{driver}: {hxx cxx}{*} $libs

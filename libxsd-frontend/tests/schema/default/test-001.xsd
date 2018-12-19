@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:t="test" xmlns="foo" targetNamespace="test">
+
+  <xs:complexType name="type">
+    <xs:sequence>
+      <xs:element name="e" type="xs:QName" default="unqual"/>
+    </xs:sequence>
+    <xs:attribute name="a" type="xs:QName" default="unqual"/>
+  </xs:complexType>
+
+</xs:schema>

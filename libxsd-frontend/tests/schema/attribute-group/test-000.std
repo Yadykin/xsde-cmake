@@ -1,0 +1,17 @@
+primary
+{
+  namespace test
+  {
+    complex type
+    {
+      optional attribute foo2 http://www.w3.org/2001/XMLSchema#string
+      required attribute bar2 http://www.w3.org/2001/XMLSchema#string
+      optional attribute foo3 http://www.w3.org/2001/XMLSchema#string
+      required attribute bar3 http://www.w3.org/2001/XMLSchema#string
+    }
+    attribute foo2 http://www.w3.org/2001/XMLSchema#string
+    attribute bar2 http://www.w3.org/2001/XMLSchema#string
+    attribute foo3 http://www.w3.org/2001/XMLSchema#string
+    attribute bar3 http://www.w3.org/2001/XMLSchema#string
+  }
+}

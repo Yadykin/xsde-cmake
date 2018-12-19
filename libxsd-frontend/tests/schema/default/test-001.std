@@ -1,0 +1,15 @@
+primary
+{
+  namespace test
+  {
+    complex type
+    {
+      element e=foo#unqual
+      optional attribute a=foo#unqual http://www.w3.org/2001/XMLSchema#QName
+      [1, 1] sequence
+      {
+        [1, 1] element e=foo#unqual http://www.w3.org/2001/XMLSchema#QName
+      }
+    }
+  }
+}

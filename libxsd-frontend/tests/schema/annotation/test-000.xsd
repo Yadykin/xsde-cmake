@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:t="test" targetNamespace="test">
+
+  <annotation>
+    <documentation>schema documentation</documentation>
+  </annotation>
+
+  <simpleType name="list">
+    <annotation>
+      <documentation>list type documentation</documentation>
+    </annotation>
+    <list itemType="string"/>
+  </simpleType>
+
+  <simpleType name="union">
+    <annotation>
+      <documentation>union type documentation</documentation>
+    </annotation>
+    <union memberTypes="int string"/>
+  </simpleType>
+
+  <simpleType name="enum">
+    <annotation>
+      <documentation>enumeration type documentation</documentation>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="male">
+        <annotation>
+          <documentation>enumerator documentation (male)</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="female">
+        <annotation>
+          <documentation>enumerator documentation (female)</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+
+  <complexType name="type">
+    <annotation>
+      <documentation>complex type documentation</documentation>
+    </annotation>
+    <sequence>
+      <element name="efoo" type="string">
+        <annotation>
+          <documentation>local element efoo documentation</documentation>
+        </annotation>
+      </element>
+      <element name="ebar">
+        <annotation>
+          <documentation>local element ebar documentation</documentation>
+        </annotation>
+        <complexType>
+          <sequence>
+            <element name="efoo" type="string">
+              <annotation>
+                <documentation>nested local element efoo documentation</documentation>
+              </annotation>
+            </element>
+          </sequence>
+          <attribute name="afoo" type="string">
+            <annotation>
+              <documentation>nested local attribute afoo documentation</documentation>
+            </annotation>
+          </attribute>
+        </complexType>
+      </element>
+      <element ref="t:ebaz">
+        <annotation>
+          <documentation>local element ebaz documentation</documentation>
+        </annotation>
+      </element>
+      <any namespace="##other">
+        <annotation>
+          <documentation>any documentation</documentation>
+        </annotation>
+      </any>
+    </sequence>
+    <attribute name="afoo" type="string">
+      <annotation>
+        <documentation>local attribute afoo documentation</documentation>
+      </annotation>
+    </attribute>
+    <attribute name="abar">
+      <annotation>
+        <documentation>local attribute abar documentation</documentation>
+      </annotation>
+      <simpleType>
+        <annotation>
+          <documentation>list type documentation</documentation>
+        </annotation>
+        <list itemType="string"/>
+      </simpleType>
+    </attribute>
+    <attribute ref="t:abaz">
+      <annotation>
+        <documentation>local attribute abaz documentation</documentation>
+      </annotation>
+    </attribute>
+    <anyAttribute namespace="##other">
+      <annotation>
+        <documentation>anyAttribute documentation</documentation>
+      </annotation>
+    </anyAttribute>
+  </complexType>
+
+  <element name="ebaz" type="string">
+    <annotation>
+      <documentation>global element documentation</documentation>
+    </annotation>
+  </element>
+
+  <attribute name="abaz" type="string">
+    <annotation>
+      <documentation>global attribute documentation</documentation>
+    </annotation>
+  </attribute>
+
+</schema>

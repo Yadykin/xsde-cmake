@@ -1,0 +1,30 @@
+anonymous: test anon_item anon
+anonymous: test anon_nested_item anon_nested
+anonymous: test anon_nested_item_base anon_nested_item
+primary
+{
+  namespace test
+  {
+    list named http://www.w3.org/2001/XMLSchema#string
+    enumeration anon_item: http://www.w3.org/2001/XMLSchema#string
+    {
+      enumerator male
+      enumerator female
+    }
+    list anon test#anon_item1
+    list anon_nested test#anon_nested_item
+    enumeration anon_item1: http://www.w3.org/2001/XMLSchema#string
+    {
+      enumerator male
+      enumerator female
+    }
+    enumeration anon_nested_item: test#anon_nested_item_base
+    {
+      enumerator male
+      enumerator female
+    }
+    complex anon_nested_item_base: http://www.w3.org/2001/XMLSchema#string
+    {
+    }
+  }
+}

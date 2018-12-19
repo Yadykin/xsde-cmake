@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:t="test" xmlns:x="foo" targetNamespace="test">
+
+  <xs:complexType name="type">
+    <xs:sequence>
+      <xs:element name="e1" type="xs:int" default="123"/>
+      <xs:element name="e2" type="xs:int" fixed="456"/>
+
+      <xs:element name="e3" type="xs:QName" default="unqual"/>
+      <xs:element name="e4" type="xs:QName" fixed="t:foo"/>
+      <xs:element name="e5" type="xs:QName" default="x:bar"/>
+    </xs:sequence>
+    <xs:attribute name="a1" type="xs:int" default="123"/>
+    <xs:attribute name="a2" type="xs:int" fixed="456"/>
+
+    <xs:attribute name="a3" type="t:qname" default="x:bar"/>
+  </xs:complexType>
+
+  <xs:simpleType name="qname">
+    <xs:restriction base="xs:QName"/>
+  </xs:simpleType>
+
+</xs:schema>

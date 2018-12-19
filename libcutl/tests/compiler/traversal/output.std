@@ -1,0 +1,16 @@
+base_impl: base
+base_impl: base
+base_impl: base
+
+derived1_impl: derived1
+
+combined_impl: derived1
+combined_impl: derived2
+
+base_impl: base
+derived1_impl: derived1
+base_impl: base
+
+derived1_impl: derived1
+combined_impl: derived1
+combined_impl: derived2

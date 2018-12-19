@@ -1,0 +1,16 @@
+libcutl is a C++ utility library. It contains a collection of generic and
+fairly independent components. See doc/components.txt for an overview.
+
+See the NEWS file for the user-visible changes from the previous release.
+
+See the LICENSE file for distribution conditions.
+
+See the INSTALL file for prerequisites and installation instructions.
+
+See the doc/ directory for documentation.
+
+The project page is at http://codesynthesis.com/projects/libcutl/.
+
+Send questions, bug reports, or any other feedback to 
+libcutl-users@codesynthesis.com.
+
