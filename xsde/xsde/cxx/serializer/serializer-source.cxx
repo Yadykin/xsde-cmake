@@ -11,6 +11,22 @@
 
 using namespace std;
 
+static SemanticGraph::Namespace* getNameSpace(SemanticGraph::Nameable& n)
+{
+  SemanticGraph::Namespace* ns = 0;
+  SemanticGraph::Nameable* n_ = &n.scope();
+  while (!ns)
+  {
+    if (!n_->named_p())
+      break;
+    ns = dynamic_cast<SemanticGraph::Namespace*>(n_);
+    if (ns)
+      break;
+    n_ = &n_->scope();
+  }
+  return ns;
+}
+
 namespace CXX
 {
   namespace Serializer
@@ -45,6 +61,17 @@ namespace CXX
 
               String const& impl (etiein (t));
 
+              String scopeTypeSskelName;
+              String scopeNamespace;
+              {
+                SemanticGraph::Scope& sc = scope (c);
+                const SemanticGraph::Type* scopeType = dynamic_cast<const SemanticGraph::Type*>(&sc); // this is this master lement type
+                scopeTypeSskelName = scopeType ? this->ename(*scopeType) + L"::" : L"E_R_R_O_R  ";
+                SemanticGraph::Namespace* ns = getNameSpace(sc);
+                if (ns)
+                  scopeNamespace = this->ns_name(*ns) + L"::";
+              }
+
               if (max != 1)
               {
                 String const& next (enext (c));
@@ -52,8 +79,10 @@ namespace CXX
                 os << "bool " << scope_ << "::" << endl
                    << next << " ()"
                    << "{"
-                   << "assert (this->" << impl << ");"
-                   << "return this->" << impl << "->" << next << " ();"
+                   //<< "assert (this->" << impl << ");"
+                   << "assert (" << scopeNamespace << scopeTypeSskelName << impl << ");"
+                   //<< "return this->" << impl << "->" << next << " ();"
+                   << "return " << scopeNamespace << scopeTypeSskelName << impl << "->" << next << " ();"
                    << "}";
               }
 
@@ -63,8 +92,10 @@ namespace CXX
                 scope_ << "::" << endl
                  << arm << " ()"
                  << "{"
-                 << "assert (this->" << impl << ");"
-                 << "return this->" << impl << "->" << arm << " ();"
+                 //<< "assert (this->" << impl << ");"
+                 << "assert (" << scopeNamespace << scopeTypeSskelName << impl << ");"
+                 //<< "return this->" << impl << "->" << arm << " ();"
+                 << "return " << scopeNamespace << scopeTypeSskelName << impl << "->" << arm << " ();"
                  << "}";
             }
 
@@ -129,6 +160,17 @@ namespace CXX
           String const& impl (
             etiein (dynamic_cast<SemanticGraph::Type&> (e.scope ())));
 
+          String scopeTypeSskelName;
+          String scopeNamespace;
+          {
+            const SemanticGraph::Type* scopeType = dynamic_cast<const SemanticGraph::Type*>(&e.scope()); // this is this master lement type
+            scopeTypeSskelName = scopeType ? this->ename(*scopeType) : "E_R_R_O_R";
+            SemanticGraph::Namespace* ns = getNameSpace(e);
+            if (!ns)
+              ns = &e.namespace_(); // revert to other path
+            scopeNamespace = this->ns_name(*ns);
+          }
+
           if (max != 1 && min != 0)
           {
             String const& next (enext (e));
@@ -136,8 +178,10 @@ namespace CXX
             os << "bool " << scope_ << "::" << endl
                << next << " ()"
                << "{"
-               << "assert (this->" << impl << ");"
-               << "return this->" << impl << "->" << next << " ();"
+               //<< "assert (this->" << impl << ");"
+               << "assert (" << scopeNamespace << "::" << scopeTypeSskelName << "::" << impl << ");"
+               //<< "return this->" << impl << "->" << next << " ();"
+               << "return " << scopeNamespace << "::" << scopeTypeSskelName << "::" << impl << "->" << next << " ();"
                << "}";
           }
 
@@ -150,8 +194,10 @@ namespace CXX
             os << ret << " " << scope_ << "::" << endl
                << name << " ()"
                << "{"
-               << "assert (this->" << impl << ");"
-               << "return this->" << impl << "->" << name << " ();"
+               //<< "assert (this->" << impl << ");"
+               << "assert (" << scopeNamespace << "::" << scopeTypeSskelName << "::" << impl << ");"
+               //<< "return this->" << impl << "->" << name << " ();"
+               << "return " << scopeNamespace << "::" << scopeTypeSskelName << "::" << impl << "->" << name << " ();"
                << "}";
           }
         }
@@ -229,6 +275,17 @@ namespace CXX
         {
           String const& ret (ret_type (a.type ()));
 
+          String scopeTypeSskelName;
+          String scopeNamespace;
+          {
+            const SemanticGraph::Type* scopeType = dynamic_cast<const SemanticGraph::Type*>(&a.scope()); // this is this master lement type
+            scopeTypeSskelName = scopeType ? this->ename(*scopeType) : "E_R_R_O_R";
+            SemanticGraph::Namespace* ns = getNameSpace(a);
+            if (!ns)
+              ns = &a.namespace_();
+            scopeNamespace = this->ns_name(*ns);
+          }
+
           if (ret != L"void")
           {
             String const& impl (
@@ -239,8 +296,10 @@ namespace CXX
             os << ret << " " << scope_ << "::" << endl
                << name << " ()"
                << "{"
-               << "assert (this->" << impl << ");"
-               << "return this->" << impl << "->" << name << " ();"
+               //<< "assert (this->" << impl << ");"
+               << "assert (" << scopeNamespace << "::" << scopeTypeSskelName << "::" << impl << ");"
+               //<< "return this->" << impl << "->" << name << " ();"
+               << "return " << scopeNamespace << "::" << scopeTypeSskelName << "::" << impl << "->" << name << " ();"
                << "}";
           }
         }
